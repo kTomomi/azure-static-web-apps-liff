@@ -107,7 +107,7 @@
           contentType: 'application/json',
           dataType: "json",
           success: function (res, status) {
-            //if(liff.isApiAvailable('shareTargetPicker')){
+            if(liff.isApiAvailable('shareTargetPicker')){
               liff.getProfile().then(function(profile) {
                 liff.shareTargetPicker([
                   {
@@ -128,11 +128,11 @@
                     if (parseInt(majorVer) == 10 && parseInt(minorVer) < 11) {
                       // LINE 10.3.0 - 10.10.0
                       // Old LINE will access here regardless of user's action
-                      window.alert('TargetPicker was opened at least. Whether succeeded to send message is unclear')
+                      console.log('TargetPicker was opened at least. Whether succeeded to send message is unclear')
                     } else {
                       // LINE 10.11.0 -
                       // sending message canceled
-                      window.alert('TargetPicker was closed!')
+                      console.log('TargetPicker was closed!')
                     }
                   }
                 }).catch(function (error) {
@@ -142,9 +142,9 @@
               }).catch(function(error) {
               window.alert('Error getting profile: ' + error);
               });
-            //}else{
-              //window.alert("Failed to launch ShareTargetPicker");
-            //}
+            }else{
+              console.log("Failed to launch ShareTargetPicker");
+            }
           },
           error: function (res) {
             window.alert('Error saving image: ' + res.status);
