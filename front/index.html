@@ -107,7 +107,7 @@
           contentType: 'application/json',
           dataType: "json",
           success: function (res, status) {
-            if(liff.isApiAvailable('shareTargetPicker')){
+            //if(liff.isApiAvailable('shareTargetPicker')){
               liff.getProfile().then(function(profile) {
                 liff.shareTargetPicker([
                   {
@@ -142,9 +142,9 @@
               }).catch(function(error) {
               window.alert('Error getting profile: ' + error);
               });
-            }else{
-              window.alert("Failed to launch ShareTargetPicker");
-            }
+            //}else{
+              //window.alert("Failed to launch ShareTargetPicker");
+            //}
           },
           error: function (res) {
             window.alert('Error saving image: ' + res.status);
